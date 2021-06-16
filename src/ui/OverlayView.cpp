@@ -6,12 +6,10 @@
 
 OverlayView::OverlayView() : movingItem_(false) {
     setWindowFlags(
-        Qt::ToolTip |
-        Qt::BypassWindowManagerHint |
+        Qt::SplashScreen |
         Qt::CustomizeWindowHint |
         Qt::BypassGraphicsProxyWidget |
         Qt::WindowStaysOnTopHint |
-        Qt::X11BypassWindowManagerHint |
         Qt::WindowOverridesSystemGestures |
         Qt::MaximizeUsingFullscreenGeometryHint
     );
