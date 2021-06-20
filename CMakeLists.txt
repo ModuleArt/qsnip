@@ -83,10 +83,6 @@ set(SOURCE_FILES
     src/utils/System.h
 )
 
-file(READ CHANGELOG.txt CHANGELOG_TEXT)
-configure_file(src/utils/Changelog.h.in src/utils/Changelog.h)
-list(APPEND SOURCE_FILES src/utils/Changelog.h)
-
 # For CLion
 include_directories(cmake-build-debug)
 

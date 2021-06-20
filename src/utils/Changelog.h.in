@@ -1,3 +1,0 @@
-#pragma once
-
-const char* changelogText = R"(${CHANGELOG_TEXT})";

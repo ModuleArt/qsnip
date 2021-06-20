@@ -1,8 +1,0 @@
-v0.16-20180122-1 (2018-01-22)
-- macOS deploy
-
-v0.16-20180115-1 (2018-01-15)
-- Changelog in the about tab
-
-v0.16-20180112-3 (2018-01-12)
-- Dragging items
