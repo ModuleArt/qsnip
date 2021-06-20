@@ -18,7 +18,7 @@ void Settings::setAutostartup(const bool value) {
 }
 
 UploadService Settings::service() const {
-    return static_cast<UploadService>(settings_.value("common/service", static_cast<int>(UploadService::SERVER)).toInt());
+    return static_cast<UploadService>(settings_.value("common/service", static_cast<int>(UploadService::CLIPBOARD)).toInt());
 }
 
 void Settings::setService(const UploadService value) {

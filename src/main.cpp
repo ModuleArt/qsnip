@@ -16,9 +16,9 @@ int main(int argc, char *argv[]) {
 
     // FIXME
     // QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
-    app.setOrganizationName("Screenshotgun");
-    app.setOrganizationDomain("screenshotgun.com");
-    app.setApplicationName("Screenshotgun");
+    app.setOrganizationName("Module Art");
+    app.setOrganizationDomain("moduleart.github.io");
+    app.setApplicationName("Qsnip");
 
     QFile file(":/styles/style.qss");
     file.open(QFile::ReadOnly);
