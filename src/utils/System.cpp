@@ -2,7 +2,7 @@
 
 #include <QDir>
 
-System::System() : lockFile_(QDir::temp().absoluteFilePath("screenshotgun.lock")) {
+System::System() : lockFile_(QDir::temp().absoluteFilePath("qsnip.lock")) {
 }
 
 System::~System() {

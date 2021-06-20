@@ -9,7 +9,6 @@ TrayIcon::TrayIcon()
     : makeScreenshotAction_("Make screenshot", this),
       updateAction_("Update", this),
       settingsAction_("Settings", this),
-      historyMenu_("History"),
       quitAction_("Quit", this)
 {
 #if defined(Q_OS_LINUX)
@@ -20,21 +19,16 @@ TrayIcon::TrayIcon()
     setIcon(QIcon(":/icons/icon-22.png"));
 #endif
 
-    setToolTip("Screenshotgun");
+    setToolTip("Qsnip");
 
     iconMenu_.addAction(&makeScreenshotAction_);
 #if defined(Q_OS_WIN32) || defined(Q_OS_MACOS)
     iconMenu_.addAction(&updateAction_);
 #endif
     iconMenu_.addAction(&settingsAction_);
-    iconMenu_.addMenu(&historyMenu_);
     iconMenu_.addAction(&quitAction_);
 
     setContextMenu(&iconMenu_);
-
-    for (const QString& url : Context::getInstance().history->linksFromHistory()) {
-        addLinkToHistory(url);
-    }
 
     connect(&makeScreenshotAction_, &QAction::triggered, this, [&]() {
         emit screenshotActionTriggered();
@@ -56,31 +50,4 @@ TrayIcon::TrayIcon()
             emit screenshotActionTriggered();
         }
     });
-
-    connect(Context::getInstance().history, &History::linkAdded, this, [&](const QString& url) {
-        addLinkToHistory(url);
-    });
-}
-
-void TrayIcon::addLinkToHistory(const QString& link) {
-    QAction* action = new QAction(link, this);
-    action->setData(link);
-
-    connect(action, &QAction::triggered, this, [&]() {
-        QAction* action = static_cast<QAction*>(QObject::sender());
-        QDesktopServices::openUrl(action->data().toString());
-    });
-
-    QList<QAction*> actions = historyMenu_.actions();
-    if (actions.empty()) {
-        historyMenu_.addAction(action);
-    } else {
-        historyMenu_.insertAction(actions.first(), action);
-    }
-
-    if (actions.size() > 4) {
-        QAction* action = actions.last();
-        historyMenu_.removeAction(action);
-        action->deleteLater();
-    }
 }

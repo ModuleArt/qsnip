@@ -39,9 +39,6 @@ void OAuth::setService(const UploadService service) {
             text.replace("{LINK}", "https://accounts.google.com/o/oauth2/v2/auth?response_type=code&scope=https://www.googleapis.com/auth/drive.file&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_id=" + GOOGLE_CLIENT_ID);
             break;
 
-        case UploadService::SERVER:
-            break;
-
         case UploadService::CLIPBOARD:
             break;
     }
@@ -59,9 +56,6 @@ void OAuth::accept() {
 
         case UploadService::GOOGLE:
             getToken(GOOGLE_URL, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET);
-            break;
-
-        case UploadService::SERVER:
             break;
 
         case UploadService::CLIPBOARD:
@@ -100,9 +94,6 @@ void OAuth::onTokenReply(QNetworkReply* reply) {
                 }
                 break;
 
-            case UploadService::SERVER:
-                break;
-
             case UploadService::CLIPBOARD:
                 break;
         }
@@ -129,7 +120,6 @@ void OAuth::refreshToken(const UploadService service) {
             getToken(GOOGLE_URL, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET);
             break;
 
-        case UploadService::SERVER:
         case UploadService::DROPBOX:
         case UploadService::CLIPBOARD:
             break;

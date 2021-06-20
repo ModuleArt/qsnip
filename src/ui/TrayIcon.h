@@ -13,15 +13,11 @@ public:
 signals:
     void screenshotActionTriggered();
 
-public slots:
-    void addLinkToHistory(const QString&);
-
 private:
     QMenu iconMenu_;
 
     QAction makeScreenshotAction_;
     QAction updateAction_;
     QAction settingsAction_;
-    QMenu historyMenu_;
     QAction quitAction_;
 };

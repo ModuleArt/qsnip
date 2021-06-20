@@ -29,7 +29,10 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
+   </property>
+   <property name="elideMode">
+    <enum>Qt::ElideMiddle</enum>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -77,22 +80,6 @@
             <property name="spacing">
              <number>6</number>
             </property>
-            <item>
-             <widget class="QRadioButton" name="radioButtonServer">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>23</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>Server</string>
-              </property>
-              <property name="checked">
-               <bool>false</bool>
-              </property>
-             </widget>
-            </item>
             <item>
              <widget class="QRadioButton" name="radioButtonDropbox">
               <property name="enabled">
@@ -151,22 +138,6 @@
             <property name="spacing">
              <number>6</number>
             </property>
-            <item>
-             <widget class="QLineEdit" name="serverEdit">
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>23</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>api.screenshotgun.com</string>
-              </property>
-              <property name="placeholderText">
-               <string>Адрес сервера</string>
-              </property>
-             </widget>
-            </item>
             <item>
              <widget class="QPushButton" name="authDropbox">
               <property name="enabled">
@@ -382,7 +353,7 @@
       <item>
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>Website: &lt;a href=&quot;http://screenshotgun.com&quot;&gt;screenshotgun.com&lt;/a&gt;</string>
+         <string>Website: &lt;a href=&quot;https://moduleart.github.io&quot;&gt;moduleart.github.io&lt;/a&gt;</string>
         </property>
         <property name="textFormat">
          <enum>Qt::AutoText</enum>
@@ -405,7 +376,7 @@
       <item>
        <widget class="QLabel" name="label_3">
         <property name="text">
-         <string>e-mail: &lt;a href=&quot;mailto:zzismd@gmail.com&quot;&gt;zzismd@gmail.com&lt;/a&gt;</string>
+         <string>e-mail: &lt;a href=&quot;mailto:module.art.team@gmail.com&quot;&gt;module.art.team@gmail.com&lt;/a&gt;</string>
         </property>
         <property name="openExternalLinks">
          <bool>true</bool>
@@ -415,7 +386,7 @@
       <item>
        <widget class="QLabel" name="label_4">
         <property name="text">
-         <string>Source code: &lt;a href=&quot;https://github.com/ismd/screenshotgun&quot;&gt;github.com/ismd/screenshotgun&lt;/a&gt;</string>
+         <string>Source code: &lt;a href=&quot;https://github.com/ModuleArt/qsnip&quot;&gt;github.com/ModuleArt/qsnip&lt;/a&gt;</string>
         </property>
         <property name="openExternalLinks">
          <bool>true</bool>

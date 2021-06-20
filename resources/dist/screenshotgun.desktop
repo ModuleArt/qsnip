@@ -1,8 +1,8 @@
 [Desktop Entry]
-Name=Screenshotgun
-Comment=Open screenshoter
-Exec=screenshotgun
-Icon=screenshotgun
+Name=Qsnip
+Comment=Powerful cross-platform screenshot utility
+Exec=qsnip
+Icon=qsnip
 Type=Application
 Categories=Network;Application;
 Terminal=false

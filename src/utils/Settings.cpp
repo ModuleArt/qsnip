@@ -2,7 +2,7 @@
 
 #include <QKeySequence>
 
-Settings::Settings() : settings_("screenshotgun", "main") {
+Settings::Settings() : settings_("qsnip", "main") {
     // If settings file not exists
     if (!settings_.contains("common/autostartup")) {
         setAutostartup(false);
@@ -23,14 +23,6 @@ UploadService Settings::service() const {
 
 void Settings::setService(const UploadService value) {
   settings_.setValue("common/service", static_cast<int>(value));
-}
-
-QString Settings::serverUrl() const {
-    return settings_.value("server/url", "api.screenshotgun.com").toString();
-}
-
-void Settings::setServerUrl(const QString &value) {
-  settings_.setValue("server/url", value);
 }
 
 QString Settings::dropboxToken() const {

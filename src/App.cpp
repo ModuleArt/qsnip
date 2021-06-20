@@ -15,9 +15,7 @@ App::App() {
     ctx.settingsForm = new SettingsForm();
     ctx.dropbox = new Dropbox();
     ctx.google = new Google();
-    ctx.server = new Server();
     ctx.clipboard = new Clipboard();
-    ctx.history = new History();
     ctx.trayIcon = new TrayIcon();
 
     connect(ctx.trayIcon, &TrayIcon::screenshotActionTriggered, this, &App::makeScreenshot);
@@ -56,12 +54,6 @@ App::App() {
 
 void App::makeScreenshot() {
     Context& ctx = Context::getInstance();
-
-    if (ctx.settings->service() == UploadService::SERVER && !ctx.server->connected()) {
-        ctx.settingsForm->setError("Can't connect to server");
-        ctx.settingsForm->show();
-        return;
-    }
 
     // Making screenshot
     const QDesktopWidget* desktop = QApplication::desktop();
@@ -118,10 +110,6 @@ void App::processScreenshot() {
     ctx.overlayView->scene.render(&painter);
 
     switch (ctx.settings->service()) {
-        case UploadService::SERVER:
-            ctx.server->upload(image);
-            break;
-
         case UploadService::DROPBOX:
             ctx.dropbox->upload(image);
             break;

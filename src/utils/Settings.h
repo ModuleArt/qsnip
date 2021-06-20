@@ -14,9 +14,6 @@ public:
     UploadService service() const;
     void setService(const UploadService);
 
-    QString serverUrl() const;
-    void setServerUrl(const QString&);
-
     QString dropboxToken() const;
     void setDropboxToken(const QString&);
 

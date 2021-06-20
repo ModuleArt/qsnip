@@ -2,12 +2,9 @@
 
 #include "App.h"
 
-#include "utils/History.h"
-
 #include "services/Clipboard.h"
 #include "services/Dropbox.h"
 #include "services/Google.h"
-#include "services/Server.h"
 
 #include "services/lib/UploadService.h"
 
@@ -61,13 +58,7 @@ public:
      */
     Dropbox* dropbox;
     Google* google;
-    Server* server;
     Clipboard* clipboard;
-
-    /**
-     * History of screenshots
-     */
-    History* history;
 
     ItemManager* itemManager;
 

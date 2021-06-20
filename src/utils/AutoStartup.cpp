@@ -21,7 +21,7 @@ void AutoStartup::setLinux(const bool enabled) {
         + QLatin1String("/autostart/");
 
     QString desktopFileLocation = autoStartPath
-        + "Screenshotgun"
+        + "Qsnip"
         + QLatin1String(".desktop");
 
     if (enabled) {
@@ -39,7 +39,7 @@ void AutoStartup::setLinux(const bool enabled) {
         QTextStream ts(&iniFile);
         ts.setCodec("UTF-8");
         ts << QLatin1String("[Desktop Entry]") << '\n'
-           << QLatin1String("Name=") << "Screenshotgun" << '\n'
+           << QLatin1String("Name=") << "Qsnip" << '\n'
 //           << QLatin1String("GenericName=") << QLatin1String("File Synchronizer") << '\n'
            << QLatin1String("Exec=") << QCoreApplication::applicationFilePath() << '\n'
            << QLatin1String("Terminal=") << "false" << '\n'
@@ -62,9 +62,9 @@ void AutoStartup::setWindows(const bool enabled) {
     QSettings settings(runPath, QSettings::NativeFormat);
 
     if (enabled) {
-        settings.setValue("Screenshotgun", QCoreApplication::applicationFilePath().replace('/','\\'));
+        settings.setValue("Qsnip", QCoreApplication::applicationFilePath().replace('/','\\'));
     } else {
-        settings.remove("Screenshotgun");
+        settings.remove("Qsnip");
     }
 }
 #endif

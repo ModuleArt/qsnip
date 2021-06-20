@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5.1)
-project(screenshotgun)
+project(qsnip)
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -Wall")
@@ -51,8 +51,6 @@ set(SOURCE_FILES
     src/services/Dropbox.h
     src/services/Google.cpp
     src/services/Google.h
-    src/services/Server.cpp
-    src/services/Server.h
 
     src/services/lib/AbstractService.cpp
     src/services/lib/AbstractService.h
@@ -79,8 +77,6 @@ set(SOURCE_FILES
     # Utils
     src/utils/AutoStartup.cpp
     src/utils/AutoStartup.h
-    src/utils/History.cpp
-    src/utils/History.h
     src/utils/Settings.cpp
     src/utils/Settings.h
     src/utils/System.cpp
@@ -98,8 +94,8 @@ include_directories(cmake-build-debug)
 if(APPLE)
     include_directories(${Qt5Gui_PRIVATE_INCLUDE_DIRS})
 
-    add_executable(screenshotgun MACOSX_BUNDLE ${SOURCE_FILES})
-    target_link_libraries(screenshotgun Qt5::Widgets Qt5::Gui Qt5::Network)
+    add_executable(qsnip MACOSX_BUNDLE ${SOURCE_FILES})
+    target_link_libraries(qsnip Qt5::Widgets Qt5::Gui Qt5::Network)
 
 # Linux
 elseif(UNIX)
@@ -115,8 +111,8 @@ elseif(UNIX)
     if(NOT ${CMAKE_BUILD_TYPE} MATCHES "Release" OR NOT DEFINED STATIC_BUILD OR NOT ${STATIC_BUILD})
         include_directories(${Qt5Gui_PRIVATE_INCLUDE_DIRS})
 
-        add_executable(screenshotgun ${SOURCE_FILES})
-        target_link_libraries(screenshotgun X11 Qt5::Widgets Qt5::Gui Qt5::Network)
+        add_executable(qsnip ${SOURCE_FILES})
+        target_link_libraries(qsnip X11 Qt5::Widgets Qt5::Gui Qt5::Network)
     else()
         include_directories(${ADDITIONAL_INCLUDE})
 
@@ -131,8 +127,8 @@ elseif(UNIX)
 
         list(APPEND SOURCE_FILES src/plugins.cpp)
 
-        add_executable(screenshotgun ${SOURCE_FILES})
-        target_link_libraries(screenshotgun
+        add_executable(qsnip ${SOURCE_FILES})
+        target_link_libraries(qsnip
             gobject-2.0 qwayland-egl wayland-egl qwayland-generic Qt5WaylandClient wayland-client wayland-cursor qxcb
             qxcb-egl-integration qxcb-glx-integration Qt5XcbQpa Xi SM ICE xcb-static qdds qicns qico qjp2 jasper qmng
             mng qtga qtiff tiff qwbmp qwebp webp qeglfs-kms-integration drm gbm qeglfs-x11-integration X11-xcb xcb
@@ -141,14 +137,14 @@ elseif(UNIX)
             pthread Qt5::Widgets Qt5::Gui Qt5::Network proxy)
     endif()
 
-    install(TARGETS screenshotgun RUNTIME DESTINATION bin)
-    install(FILES "${CMAKE_SOURCE_DIR}/resources/dist/screenshotgun.desktop"
+    install(TARGETS qsnip RUNTIME DESTINATION bin)
+    install(FILES "${CMAKE_SOURCE_DIR}/resources/dist/qsnip.desktop"
         DESTINATION share/applications)
-    install(FILES "${CMAKE_SOURCE_DIR}/resources/dist/screenshotgun.png"
+    install(FILES "${CMAKE_SOURCE_DIR}/resources/dist/qsnip.png"
         DESTINATION share/pixmaps)
 
 # Windows
 elseif(WIN32)
-    add_executable(screenshotgun WIN32 ${SOURCE_FILES})
-    target_link_libraries(screenshotgun Qt5::Widgets Qt5::Gui Qt5::Network)
+    add_executable(qsnip WIN32 ${SOURCE_FILES})
+    target_link_libraries(qsnip Qt5::Widgets Qt5::Gui Qt5::Network)
 endif()

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Screenshotgun</string>
+   <string>Qsnip</string>
   </property>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">

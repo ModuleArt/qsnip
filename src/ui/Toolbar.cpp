@@ -66,7 +66,6 @@ Toolbar::Toolbar(QWidget* parent) : QWidget(parent), dragging_(false) {
 }
 
 void Toolbar::show() {
-    select(Context::getInstance().history->lastTool());
     QWidget::show();
 }
 
