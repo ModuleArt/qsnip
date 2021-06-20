@@ -19,10 +19,6 @@ History::History() : settings_("screenshotgun", "history") {
     connect(ctx.google, &Google::uploadSuccess, this, [&](const QString& url) {
         addLink(url);
     });
-
-    connect(ctx.yandex, &Yandex::uploadSuccess, this, [&](const QString& url) {
-        addLink(url);
-    });
 }
 
 void History::addLink(const QString& url) {

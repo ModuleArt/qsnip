@@ -3,7 +3,6 @@
 enum class UploadService {
   SERVER,
   DROPBOX,
-  YANDEX,
   GOOGLE,
   CLIPBOARD,
 };

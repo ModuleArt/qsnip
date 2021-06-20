@@ -16,7 +16,6 @@ App::App() {
     ctx.dropbox = new Dropbox();
     ctx.google = new Google();
     ctx.server = new Server();
-    ctx.yandex = new Yandex();
     ctx.clipboard = new Clipboard();
     ctx.history = new History();
     ctx.trayIcon = new TrayIcon();
@@ -125,10 +124,6 @@ void App::processScreenshot() {
 
         case UploadService::DROPBOX:
             ctx.dropbox->upload(image);
-            break;
-
-        case UploadService::YANDEX:
-            ctx.yandex->upload(image);
             break;
 
         case UploadService::GOOGLE:

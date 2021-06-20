@@ -20,9 +20,6 @@ public:
     QString dropboxToken() const;
     void setDropboxToken(const QString&);
 
-    QString yandexToken() const;
-    void setYandexToken(const QString&);
-
     QString googleToken() const;
     void setGoogleToken(const QString&);
 

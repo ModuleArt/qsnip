@@ -29,7 +29,6 @@ private slots:
     void accept();
 
     void showAuthDropbox();
-    void showAuthYandex();
     void showAuthGoogle();
 
 private:

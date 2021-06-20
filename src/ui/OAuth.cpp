@@ -10,10 +10,6 @@ const QString DROPBOX_URL = "https://api.dropboxapi.com/1/oauth2/token";
 const QString DROPBOX_CLIENT_ID = "wmae5esncijnqie";
 const QString DROPBOX_CLIENT_SECRET = "3fp3vak8ijd1l1e";
 
-const QString YANDEX_URL = "https://oauth.yandex.ru/token";
-const QString YANDEX_CLIENT_ID = "9cc4557692e44328bfecf32f2c131eea";
-const QString YANDEX_CLIENT_SECRET = "1d2e753854d946ea80f3880c11c5f76e";
-
 const QString GOOGLE_URL = "https://www.googleapis.com/oauth2/v4/token";
 const QString GOOGLE_CLIENT_ID = "445396168271-7bankmpva981k4d74ebi11o7avgle1qa.apps.googleusercontent.com";
 const QString GOOGLE_CLIENT_SECRET = "_QjArq04n7dFs3TgyyB5w3D-";
@@ -39,10 +35,6 @@ void OAuth::setService(const UploadService service) {
             text.replace("{LINK}", "https://www.dropbox.com/1/oauth2/authorize?response_type=code&client_id=" + DROPBOX_CLIENT_ID);
             break;
 
-        case UploadService::YANDEX:
-            text.replace("{LINK}", "https://oauth.yandex.ru/authorize?response_type=code&client_id=" + YANDEX_CLIENT_ID);
-            break;
-
         case UploadService::GOOGLE:
             text.replace("{LINK}", "https://accounts.google.com/o/oauth2/v2/auth?response_type=code&scope=https://www.googleapis.com/auth/drive.file&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_id=" + GOOGLE_CLIENT_ID);
             break;
@@ -63,10 +55,6 @@ void OAuth::accept() {
     switch (service_) {
         case UploadService::DROPBOX:
             getToken(DROPBOX_URL, DROPBOX_CLIENT_ID, DROPBOX_CLIENT_SECRET);
-            break;
-
-        case UploadService::YANDEX:
-            getToken(YANDEX_URL, YANDEX_CLIENT_ID, YANDEX_CLIENT_SECRET);
             break;
 
         case UploadService::GOOGLE:
@@ -101,11 +89,6 @@ void OAuth::onTokenReply(QNetworkReply* reply) {
             case UploadService::DROPBOX:
                 ctx.settings->setDropboxToken(token);
                 ctx.dropbox->setToken(token);
-                break;
-
-            case UploadService::YANDEX:
-                ctx.settings->setYandexToken(token);
-                ctx.yandex->setToken(token);
                 break;
 
             case UploadService::GOOGLE:
@@ -147,7 +130,6 @@ void OAuth::refreshToken(const UploadService service) {
             break;
 
         case UploadService::SERVER:
-        case UploadService::YANDEX:
         case UploadService::DROPBOX:
         case UploadService::CLIPBOARD:
             break;

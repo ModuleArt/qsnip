@@ -21,10 +21,6 @@ SettingsForm::SettingsForm() {
             ui.radioButtonDropbox->setChecked(true);
             break;
 
-        case UploadService::YANDEX:
-            ui.radioButtonYandex->setChecked(true);
-            break;
-
         case UploadService::GOOGLE:
             ui.radioButtonGoogle->setChecked(true);
             break;
@@ -41,7 +37,6 @@ SettingsForm::SettingsForm() {
     ui.submitButtons->setEnabled(true);
 
     connect(ui.authDropbox, &QPushButton::clicked, this, &SettingsForm::showAuthDropbox);
-    connect(ui.authYandex, &QPushButton::clicked, this, &SettingsForm::showAuthYandex);
     connect(ui.authGoogle, &QPushButton::clicked, this, &SettingsForm::showAuthGoogle);
 }
 
@@ -61,11 +56,6 @@ bool SettingsForm::check() {
         }
     } else if (ui.radioButtonDropbox->isChecked()) {
         if (ctx.settings->dropboxToken().isEmpty()) {
-            setError("Application is not authorised");
-            return false;
-        }
-    } else if (ui.radioButtonYandex->isChecked()) {
-        if (ctx.settings->yandexToken().isEmpty()) {
             setError("Application is not authorised");
             return false;
         }
@@ -89,9 +79,6 @@ void SettingsForm::saveValues() {
     } else if (ui.radioButtonDropbox->isChecked()) {
         ctx.settings->setService(UploadService::DROPBOX);
         ctx.dropbox->setToken(ctx.settings->dropboxToken());
-    } else if (ui.radioButtonYandex->isChecked()) {
-        ctx.settings->setService(UploadService::YANDEX);
-        ctx.yandex->setToken(ctx.settings->yandexToken());
     } else if (ui.radioButtonGoogle->isChecked()) {
         ctx.settings->setService(UploadService::GOOGLE);
         ctx.google->setToken(ctx.settings->googleToken());
@@ -130,11 +117,6 @@ void SettingsForm::accept() {
 
 void SettingsForm::showAuthDropbox() {
     oauth.setService(UploadService::DROPBOX);
-    oauth.show();
-}
-
-void SettingsForm::showAuthYandex() {
-    oauth.setService(UploadService::YANDEX);
     oauth.show();
 }
 

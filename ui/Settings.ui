@@ -110,22 +110,6 @@
              </widget>
             </item>
             <item>
-             <widget class="QRadioButton" name="radioButtonYandex">
-              <property name="enabled">
-               <bool>false</bool>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>23</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>Yandex.Disk</string>
-              </property>
-             </widget>
-            </item>
-            <item>
              <widget class="QRadioButton" name="radioButtonGoogle">
               <property name="enabled">
                <bool>false</bool>
@@ -182,22 +166,6 @@
             </item>
             <item>
              <widget class="QPushButton" name="authDropbox">
-              <property name="enabled">
-               <bool>false</bool>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>23</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>Auth</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="authYandex">
               <property name="enabled">
                <bool>false</bool>
               </property>

@@ -41,14 +41,6 @@ void Settings::setDropboxToken(const QString &value) {
   settings_.setValue("dropbox/token", value);
 }
 
-QString Settings::yandexToken() const {
-    return settings_.value("yandex/token", "").toString();
-}
-
-void Settings::setYandexToken(const QString &value) {
-  settings_.setValue("yandex/token", value);
-}
-
 QString Settings::googleToken() const {
     return settings_.value("google/token", "").toString();
 }

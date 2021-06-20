@@ -53,8 +53,6 @@ set(SOURCE_FILES
     src/services/Google.h
     src/services/Server.cpp
     src/services/Server.h
-    src/services/Yandex.cpp
-    src/services/Yandex.h
 
     src/services/lib/AbstractService.cpp
     src/services/lib/AbstractService.h

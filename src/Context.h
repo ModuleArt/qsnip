@@ -8,7 +8,6 @@
 #include "services/Dropbox.h"
 #include "services/Google.h"
 #include "services/Server.h"
-#include "services/Yandex.h"
 
 #include "services/lib/UploadService.h"
 
@@ -63,7 +62,6 @@ public:
     Dropbox* dropbox;
     Google* google;
     Server* server;
-    Yandex* yandex;
     Clipboard* clipboard;
 
     /**
