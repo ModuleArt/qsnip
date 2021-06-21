@@ -7,7 +7,7 @@
 #if defined(Q_OS_LINUX)
 #include "external/qxt/qxtglobalshortcut.h"
 #elif defined(Q_OS_MACOS)
-#include "external/qhotkey/qhotkey.h"
+
 #endif
 
 class App : public QObject {

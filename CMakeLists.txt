@@ -88,27 +88,35 @@ include_directories(cmake-build-debug)
 
 # macOS
 if(APPLE)
+
+
     list(APPEND SOURCE_FILES
-        src/external/qhotkey/qhotkey.h
-        src/external/qhotkey/qhotkey_p.h
-        src/external/qhotkey/qhotkey_mac.cpp
-        src/external/qhotkey/qhotkey.cpp)
+        src/external/qxtglobalshortcut5/qxtglobal.h
+        src/external/qxtglobalshortcut5/qxtglobalshortcut_p.h
+        src/external/qxtglobalshortcut5/qxtglobalshortcut.h
+        src/external/qxtglobalshortcut5/qxtglobal.cpp
+        src/external/qxtglobalshortcut5/qxtglobalshortcut.cpp
+#        src/external/qxtglobalshortcut5/qxtwindowsystem_mac.cpp
+#        src/external/qxtglobalshortcut5/qxtglobalshortcut_mac.cpp
+#        src/external/qxtglobalshortcut5/qxtwindowsystem_mac.h
+    )
 
     include_directories(${Qt5Gui_PRIVATE_INCLUDE_DIRS})
 
     add_executable(qsnip MACOSX_BUNDLE ${SOURCE_FILES})
+
+    target_link_libraries(qsnip stdc++ "-framework Carbon" "-framework CoreFoundation")
+
+
     target_link_libraries(qsnip Qt5::Widgets Qt5::Gui Qt5::Network)
 
 # Linux
 elseif(UNIX)
     find_package(X11 REQUIRED)
 
-    list(APPEND SOURCE_FILES
-        src/external/qxt/qxtglobal.h
-        src/external/qxt/qxtglobalshortcut.h
-        src/external/qxt/qxtglobalshortcut_p.h
-        src/external/qxt/qxtglobalshortcut.cpp
-        src/external/qxt/qxtglobalshortcut_x11.cpp)
+#    list(APPEND SOURCE_FILES
+
+#    )
 
     if(NOT ${CMAKE_BUILD_TYPE} MATCHES "Release" OR NOT DEFINED STATIC_BUILD OR NOT ${STATIC_BUILD})
         include_directories(${Qt5Gui_PRIVATE_INCLUDE_DIRS})

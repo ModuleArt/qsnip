@@ -30,7 +30,6 @@
 *****************************************************************************/
 
 #include <QVector>
-
 #if QT_VERSION < QT_VERSION_CHECK(5,0,0)
 #   include <QX11Info>
 #else
@@ -38,7 +37,6 @@
 #   include <qpa/qplatformnativeinterface.h>
 #   include <xcb/xcb.h>
 #endif
-
 #include <X11/Xlib.h>
 
 namespace {
