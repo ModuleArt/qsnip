@@ -5,7 +5,9 @@
 #include <QGraphicsPixmapItem>
 
 #if defined(Q_OS_LINUX)
-#include "qxt/qxtglobalshortcut.h"
+#include "external/qxt/qxtglobalshortcut.h"
+#elif defined(Q_OS_MACOS)
+#include "external/qhotkey/qhotkey.h"
 #endif
 
 class App : public QObject {
@@ -29,6 +31,8 @@ private:
 
 #if defined(Q_OS_LINUX)
     void initShortcutLinux(const QKeySequence);
+#elif defined(Q_OS_MACOS)
+    void initShortcutMacos(const QKeySequence);
 #elif defined(Q_OS_WIN32)
     void initShortcutWindows();
 #endif

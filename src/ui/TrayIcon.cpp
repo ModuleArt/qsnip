@@ -7,7 +7,7 @@
 
 TrayIcon::TrayIcon()
     : makeScreenshotAction_("Make screenshot", this),
-      updateAction_("Update", this),
+//      updateAction_("Update", this),
       settingsAction_("Settings", this),
       quitAction_("Quit", this)
 {
@@ -22,9 +22,9 @@ TrayIcon::TrayIcon()
     setToolTip("Qsnip");
 
     iconMenu_.addAction(&makeScreenshotAction_);
-#if defined(Q_OS_WIN32) || defined(Q_OS_MACOS)
-    iconMenu_.addAction(&updateAction_);
-#endif
+//#if defined(Q_OS_WIN32) || defined(Q_OS_MACOS)
+//    iconMenu_.addAction(&updateAction_);
+//#endif
     iconMenu_.addAction(&settingsAction_);
     iconMenu_.addAction(&quitAction_);
 

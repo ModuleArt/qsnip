@@ -133,9 +133,9 @@ void App::cancelScreenshot() {
 void App::initShortcut(const QKeySequence seq) {
 #if defined(Q_OS_LINUX)
     initShortcutLinux(seq);
-#endif
-
-#if defined(Q_OS_WIN32)
+#elif defined(Q_OS_MACOS)
+    initShortcutMacos(seq);
+#elif defined(Q_OS_WIN32)
     // FIXME
     // initShortcutWindows();
 #endif
@@ -145,9 +145,11 @@ void App::initShortcut(const QKeySequence seq) {
 void App::initShortcutLinux(const QKeySequence seq) {
     shortcut_.setShortcut(seq);
 }
-#endif
+#elif defined(Q_OS_MACOS)
+void App::initShortcutMacos(const QKeySequence seq) {
 
-#if defined(Q_OS_WIN32)
+}
+#elif defined(Q_OS_WIN32)
 void App::initShortcutWindows() {
     // RegisterHotKey((HWND)Context::getInstance().overlayView->winId(), 100, MOD_ALT, VK_SNAPSHOT);
 }

@@ -88,6 +88,12 @@ include_directories(cmake-build-debug)
 
 # macOS
 if(APPLE)
+    list(APPEND SOURCE_FILES
+        src/external/qhotkey/qhotkey.h
+        src/external/qhotkey/qhotkey_p.h
+        src/external/qhotkey/qhotkey_mac.cpp
+        src/external/qhotkey/qhotkey.cpp)
+
     include_directories(${Qt5Gui_PRIVATE_INCLUDE_DIRS})
 
     add_executable(qsnip MACOSX_BUNDLE ${SOURCE_FILES})
@@ -98,11 +104,11 @@ elseif(UNIX)
     find_package(X11 REQUIRED)
 
     list(APPEND SOURCE_FILES
-        src/qxt/qxtglobal.h
-        src/qxt/qxtglobalshortcut.h
-        src/qxt/qxtglobalshortcut_p.h
-        src/qxt/qxtglobalshortcut.cpp
-        src/qxt/qxtglobalshortcut_x11.cpp)
+        src/external/qxt/qxtglobal.h
+        src/external/qxt/qxtglobalshortcut.h
+        src/external/qxt/qxtglobalshortcut_p.h
+        src/external/qxt/qxtglobalshortcut.cpp
+        src/external/qxt/qxtglobalshortcut_x11.cpp)
 
     if(NOT ${CMAKE_BUILD_TYPE} MATCHES "Release" OR NOT DEFINED STATIC_BUILD OR NOT ${STATIC_BUILD})
         include_directories(${Qt5Gui_PRIVATE_INCLUDE_DIRS})
