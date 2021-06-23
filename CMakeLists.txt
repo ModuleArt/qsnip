@@ -90,16 +90,16 @@ include_directories(cmake-build-debug)
 if(APPLE)
 
 
-    list(APPEND SOURCE_FILES
-        src/external/qxtglobalshortcut5/qxtglobal.h
-        src/external/qxtglobalshortcut5/qxtglobalshortcut_p.h
-        src/external/qxtglobalshortcut5/qxtglobalshortcut.h
-        src/external/qxtglobalshortcut5/qxtglobal.cpp
-        src/external/qxtglobalshortcut5/qxtglobalshortcut.cpp
-#        src/external/qxtglobalshortcut5/qxtwindowsystem_mac.cpp
-#        src/external/qxtglobalshortcut5/qxtglobalshortcut_mac.cpp
-#        src/external/qxtglobalshortcut5/qxtwindowsystem_mac.h
-    )
+#    list(APPEND SOURCE_FILES
+#        src/external/qxtglobalshortcut5/qxtglobal.h
+#        src/external/qxtglobalshortcut5/qxtglobalshortcut_p.h
+#        src/external/qxtglobalshortcut5/qxtglobalshortcut.h
+#        src/external/qxtglobalshortcut5/qxtglobal.cpp
+##        src/external/qxtglobalshortcut5/qxtglobalshortcut.cpp
+##        src/external/qxtglobalshortcut5/qxtwindowsystem_mac.cpp
+##        src/external/qxtglobalshortcut5/qxtglobalshortcut_mac.cpp
+##        src/external/qxtglobalshortcut5/qxtwindowsystem_mac.h
+#    )
 
     include_directories(${Qt5Gui_PRIVATE_INCLUDE_DIRS})
 

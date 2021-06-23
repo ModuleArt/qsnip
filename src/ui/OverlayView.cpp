@@ -6,7 +6,7 @@
 
 OverlayView::OverlayView() : movingItem_(false) {
     setWindowFlags(
-        Qt::SplashScreen |
+        Qt::Popup |
         Qt::CustomizeWindowHint |
         Qt::BypassGraphicsProxyWidget |
         Qt::WindowStaysOnTopHint |
@@ -66,8 +66,11 @@ void OverlayView::hide() {
 void OverlayView::mousePressEvent(QMouseEvent* e) {
     Context& ctx = Context::getInstance();
 
+    const int x = e->x();
+    const int y = e->y();
+
     // If dragging
-    const QGraphicsItem* item = scene.itemAt(e->x(), e->y(), QGraphicsView::transform());
+    const QGraphicsItem* item = scene.itemAt(x, y, QGraphicsView::transform());
     const QGraphicsItemGroup* group = item->group();
 
     if (item->flags().testFlag(QGraphicsItem::ItemIsMovable)
@@ -79,7 +82,7 @@ void OverlayView::mousePressEvent(QMouseEvent* e) {
         return;
     }
 
-    if (ctx.itemManager->visibleAreaItem.isInnerArea(e->x(), e->y())) {
+    if (ctx.itemManager->visibleAreaItem.isInnerArea(x, y)) {
         ctx.itemManager->init(e);
     } else {
         ctx.itemManager->visibleAreaItem.init(e);
@@ -92,9 +95,30 @@ void OverlayView::mouseMoveEvent(QMouseEvent* e) {
         return;
     }
 
+    int x = e->x();
+    int y = e->y();
+
+    const QRect& geo = geometry();
+
+    if (x < 0) {
+        x = 0;
+    }
+
+    if (y < 0) {
+        y = 0;
+    }
+
+    if (x >= geo.width()) {
+        x = geo.width() - 1;
+    }
+
+    if (y >= geo.height()) {
+        y = geo.height() - 1;
+    }
+
     const Context& ctx = Context::getInstance();
 
-    const QGraphicsItem* item = scene.itemAt(e->x(), e->y(), QGraphicsView::transform());
+    const QGraphicsItem* item = scene.itemAt(x, y, QGraphicsView::transform());
     const QGraphicsItemGroup* group = item->group();
 
     if (item->flags().testFlag(QGraphicsItem::ItemIsMovable) || (group && group->flags().testFlag(QGraphicsItem::ItemIsMovable))) {
