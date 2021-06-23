@@ -51,12 +51,12 @@
     </property>
     <property name="icon">
      <iconset resource="../resources/res.qrc">
-      <normaloff>:/toolbar/visiblearea.png</normaloff>:/toolbar/visiblearea.png</iconset>
+      <normaloff>:/toolbar/crop.png</normaloff>:/toolbar/crop.png</iconset>
     </property>
     <property name="iconSize">
      <size>
-      <width>21</width>
-      <height>21</height>
+      <width>24</width>
+      <height>24</height>
      </size>
     </property>
     <property name="checked">
@@ -81,8 +81,8 @@
     </property>
     <property name="iconSize">
      <size>
-      <width>17</width>
-      <height>17</height>
+      <width>24</width>
+      <height>24</height>
      </size>
     </property>
    </widget>
@@ -103,12 +103,12 @@
     </property>
     <property name="icon">
      <iconset resource="../resources/res.qrc">
-      <normaloff>:/toolbar/rectangle.png</normaloff>:/toolbar/rectangle.png</iconset>
+      <normaloff>:/toolbar/square.png</normaloff>:/toolbar/square.png</iconset>
     </property>
     <property name="iconSize">
      <size>
-      <width>18</width>
-      <height>18</height>
+      <width>24</width>
+      <height>24</height>
      </size>
     </property>
    </widget>
@@ -133,8 +133,8 @@
     </property>
     <property name="iconSize">
      <size>
-      <width>18</width>
-      <height>18</height>
+      <width>24</width>
+      <height>24</height>
      </size>
     </property>
    </widget>
@@ -156,8 +156,8 @@
     </property>
     <property name="iconSize">
      <size>
-      <width>14</width>
-      <height>17</height>
+      <width>24</width>
+      <height>24</height>
      </size>
     </property>
    </widget>
@@ -178,12 +178,12 @@
     </property>
     <property name="icon">
      <iconset resource="../resources/res.qrc">
-      <normaloff>:/toolbar/ok.png</normaloff>:/toolbar/ok.png</iconset>
+      <normaloff>:/toolbar/copy.png</normaloff>:/toolbar/copy.png</iconset>
     </property>
     <property name="iconSize">
      <size>
-      <width>29</width>
-      <height>17</height>
+      <width>24</width>
+      <height>24</height>
      </size>
     </property>
    </widget>
@@ -208,8 +208,8 @@
     </property>
     <property name="iconSize">
      <size>
-      <width>17</width>
-      <height>17</height>
+      <width>24</width>
+      <height>24</height>
      </size>
     </property>
    </widget>
@@ -254,6 +254,7 @@
   </widget>
  </widget>
  <resources>
+  <include location="../resources/res.qrc"/>
   <include location="../resources/res.qrc"/>
  </resources>
  <connections/>

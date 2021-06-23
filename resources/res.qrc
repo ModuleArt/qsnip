@@ -1,16 +1,15 @@
-<!DOCTYPE RCC>
-<RCC version="1.0">
+<RCC>
     <qresource prefix="/">
         <file>styles/style.qss</file>
         <file>icons/icon-16.png</file>
         <file>icons/icon-22.png</file>
-        <file>toolbar/arrow.png</file>
         <file>toolbar/circle.png</file>
         <file>toolbar/line.png</file>
-        <file>toolbar/ok.png</file>
-        <file>toolbar/rectangle.png</file>
         <file>toolbar/text.png</file>
-        <file>toolbar/visiblearea.png</file>
         <file>toolbar/drag.png</file>
+        <file>toolbar/arrow.png</file>
+        <file>toolbar/copy.png</file>
+        <file>toolbar/square.png</file>
+        <file>toolbar/crop.png</file>
     </qresource>
 </RCC>

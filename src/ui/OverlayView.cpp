@@ -20,7 +20,7 @@ OverlayView::OverlayView() : movingItem_(false) {
     setAttribute(Qt::WA_NoMousePropagation);
     setAttribute(Qt::WA_NoSystemBackground);
 
-    setFocusPolicy(Qt::WheelFocus);
+    setFocusPolicy(Qt::StrongFocus);
     setMouseTracking(true);
 
     setFrameShape(QFrame::NoFrame);
