@@ -6,12 +6,14 @@
 
 OverlayView::OverlayView() : movingItem_(false) {
     setWindowFlags(
-        Qt::Popup |
+        Qt::ToolTip |
         Qt::CustomizeWindowHint |
         Qt::BypassGraphicsProxyWidget |
         Qt::WindowStaysOnTopHint |
         Qt::WindowOverridesSystemGestures |
-        Qt::MaximizeUsingFullscreenGeometryHint
+        Qt::MaximizeUsingFullscreenGeometryHint |
+        Qt::BypassWindowManagerHint |
+        Qt::NoDropShadowWindowHint
     );
 
     setAttribute(Qt::WA_MouseTracking);
@@ -51,7 +53,7 @@ void OverlayView::show() {
     raise();
     setFocus(Qt::MouseFocusReason);
 
-    emit(shown());
+    emit shown();
 }
 
 void OverlayView::hide() {
@@ -60,7 +62,7 @@ void OverlayView::hide() {
 #endif
 
     QGraphicsView::hide();
-    emit(hided());
+    emit hided();
 }
 
 void OverlayView::mousePressEvent(QMouseEvent* e) {

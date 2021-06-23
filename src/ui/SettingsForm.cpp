@@ -74,7 +74,7 @@ void SettingsForm::saveValues() {
 
     AutoStartup::set(autoStartupValue);
 
-    emit(hotkeyChanged(ui.keySequenceEdit->keySequence()));
+    emit hotkeyChanged(ui.keySequenceEdit->keySequence());
 }
 
 void SettingsForm::setHotkey(const QKeySequence seq) {

@@ -48,7 +48,7 @@ void ItemManager::init(QMouseEvent* e) {
         items_.insert(current_);
     }
 
-    emit(inited(mode));
+    emit inited(mode);
 }
 
 void ItemManager::move(QMouseEvent* e) {
@@ -58,5 +58,5 @@ void ItemManager::move(QMouseEvent* e) {
 void ItemManager::stop(QMouseEvent* e) {
     current_->stop(e);
     current_ = &visibleAreaItem;
-    emit(stopped(Context::getInstance().toolbar->selected()));
+    emit stopped(Context::getInstance().toolbar->selected());
 }

@@ -162,7 +162,7 @@ void VisibleAreaItem::stop(QMouseEvent* e) {
     fixed_ = true;
     resizing_ = false;
 
-    emit(stopped());
+    emit stopped();
 }
 
 void VisibleAreaItem::addToScene() {
